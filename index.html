@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Student Registration form</title>
+    
+</head>
+<style>
+    body {
+      background-image: url('modern-futuristic-sci-fi-background.jpg');
+      background-size: cover;
+    }
+    </style>
+<body>
+    
+    <div >
+        <div >
+            <div >
+                <h2 style="background-color:rgb(255, 0, 0);">
+                    Registration From
+                </h2>
+                <div >
+                    <div>
+                        <form action="" id="user_form">
+                            <label for="name">
+                                Name
+                            </label>
+                            <input required type="text" id="name" name="name"  placeholder="Enter your name"><br/>
+                            <label for="email">Email</label>
+                            <input required type="email" id="email" name="email"  placeholder="Enter your email"><br/>
+                            <label for="password">
+                                Password
+                            </label>
+                            <input required type="password" id="password" name="password"  placeholder="Enter your password"><br/>
+                            <label for="dob" min="18" max="55">
+                                Date of Birth
+                            </label>
+                            <input required type="date" id="dob" name="dob"  placeholder="dd/mm/yyyy"><br/>
+                        <label for="acceptTerms">Accept our Terms & Conditions</label>
+                            <input type="checkbox" name="acceptTerms" id="acceptTerms">
+                        <button type="submit" id="submit" >Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  style="background-color:rgb(0, 4, 128);">
+            <div>
+                <h2s>Entries</h2>
+                <div id="user-entries"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
