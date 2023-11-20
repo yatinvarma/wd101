@@ -1,4 +1,6 @@
-function saveUserForm() {
+function saveUserForm(event) {
+    event.preventDefault();
+
     const Name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -11,8 +13,8 @@ function saveUserForm() {
     var age = currentYear - year;
 
     if (age < 18 || age > 55) {
-        document.getElementById('Dob').style.border = '1px solid red';
-        alert("Age must be above 18 and below 55");
+        document.getElementById('dob').style.border = '1px solid red';
+        alert("Age must be between 18 and 55");
     } else {
         document.getElementById('dob').style.border = 'none';
 
@@ -25,12 +27,9 @@ function saveUserForm() {
         };
 
         let entries = JSON.parse(localStorage.getItem('userEntries')) || [];
-
-       
         entries.push(entry);
 
-        
-        localStorage.setItem('userEntries', JSON.stringify(entries));    
+        localStorage.setItem('userEntries', JSON.stringify(entries));
         displayEntries();
         document.getElementById('user_form').reset();
     }
@@ -38,7 +37,7 @@ function saveUserForm() {
 
 function display() {
     let entries = JSON.parse(localStorage.getItem('userEntries')) || [];
-    let tableBody = document.querySelector('#user_entries tbody');
+    let tableBody = document.querySelector('#userentries tbody');
     tableBody.innerHTML = '';
 
     entries.forEach(entry => {
@@ -52,4 +51,6 @@ function display() {
         tableBody.innerHTML += row;
     });
 }
+
+document.getElementById('userform').addEventListener('submit', saveUserForm);
 display();
