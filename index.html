@@ -1,120 +1,50 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration Form</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 98%;
-            margin-top: 19px;
-        }
-        th, td {
-            border: 1px solid rgb(247, 246, 246);
-            padding: 8px;
-            text-align: right;
-        }
-    </style>
+    <title>User Registration</title>
 </head>
 <body>
 
-    <h1>User Registration Form</h1>
+<form id="userform">
+    <label for="name">name:</label>
+    <input type="text" id="name" required>
 
-    <form id="userform">
-        <table id="userentries">
-            <thead>
-                <tr>
-                    <th>name</th>
-                    <th>email</th>
-                    <th>password</th>
-                    <th>dob</th>
-                    <th>accepted terms?</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+    <label for="email">email:</label>
+    <input type="email" id="email" required>
 
-        <label for="Name">Name:</label>
-        <input type="text" id="name" name="name" required>
+    <label for="password">password:</label>
+    <input type="password" id="password" required>
 
-        <label for="Email">Email:</label>
-        <input type="email" id="email" name="email" required>
+    <label for="dob">dob:</label>
+    <input type="date" id="dob" required>
 
-        <label for="Password">Password:</label>
-        <input type="password" id="password" name="password" required>
+    <label for="acceptTerms">accept Terms:</label>
+    <input type="checkbox" id="acceptTerms" required>
 
-        <label for="dob">Dob:</label>
-        <input type="date" id="dob" name="dob" required>
+    <button type="submit">submit</button>
+</form>
 
-        <label>
-            <input type="checkbox" id="acceptTerms" name="acceptTerms"> Accepted terms?
-        </label>
+<div id="userentries">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>email</th>
+                <th>password</th>
+                <th>dob</th>
+                <th>accepted Terms?</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+</div>
 
-        <button type="button" onclick="saveUserForm()">Submit</button>
-    </form>
-
-    <script>
-        function saveUserForm() {
-    const Name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const dob = document.getElementById('dob').value;
-    const acceptTerms = document.getElementById('acceptTerms').checked;
-
-    var currentYear = new Date().getFullYear();
-    var birthYear = dob.split("-");
-    let year = birthYear[0];
-    var age = currentYear - year;
-
-    if (age < 18 || age > 55) {
-        document.getElementById('Dob').style.border = '1px solid red';
-        alert("Age must be above 18 and below 55");
-    } else {
-        document.getElementById('dob').style.border = 'none';
-
-        const entry = {
-            Name,
-            email,
-            password,
-            dob,
-            acceptTerms
-        };
-
-        let entries = JSON.parse(localStorage.getItem('userEntries')) || [];
-
-       
-        entries.push(entry);
-
-        
-        localStorage.setItem('userEntries', JSON.stringify(entries));    
-        displayEntries();
-        document.getElementById('user_form').reset();
-    }
-}
-
-function display() {
-    let entries = JSON.parse(localStorage.getItem('userEntries')) || [];
-    let tableBody = document.querySelector('#user_entries tbody');
-    tableBody.innerHTML = '';
-
-    entries.forEach(entry => {
-        const row = `<tr>
-            <td>${entry.Name}</td>
-            <td>${entry.email}</td>
-            <td>${entry.password}</td>
-            <td>${entry.dob}</td>
-            <td>${entry.acceptTerms ? 'Yes' : 'No'}</td>
-        </tr>`;
-        tableBody.innerHTML += row;
-    });
-}
-display();
-        
-    </script>
-
+<script src="index.js">
+   
+</script>
 </body>
 </html>
