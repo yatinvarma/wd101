@@ -31,7 +31,7 @@ function saveUserForm(event) {
 
             localStorage.setItem('userEntries', JSON.stringify(entries));
             displayEntries();
-            document.getElementById('user_form').reset();
+            document.getElementById('userform').reset();
         }
     }
 
@@ -52,5 +52,5 @@ function saveUserForm(event) {
         });
     }
 
-    document.getElementById('user_form').addEventListener('submit', saveUserForm);
+    document.getElementById('userform').addEventListener('submit', saveUserForm);
     display();
