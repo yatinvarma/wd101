@@ -65,8 +65,8 @@ function saveuserform(event) {
   userEntries.push(entry);
 
   localStorage.setItem("UserEntries", JSON.stringify(userEntries));
-  displayEntries();
-  userForm.reset();
+  display();
+  userform.reset();
 }
 
 userform.addEventListener("submit", saveuserform);
