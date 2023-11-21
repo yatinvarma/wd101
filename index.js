@@ -1,4 +1,4 @@
-const userform = document.getElementById("usform");
+const userForm = document.getElementById("usform");
 const userEntries = retrieveEntries();
 const details = document.getElementById("usentries");
 
@@ -23,11 +23,11 @@ function display() {
     <table class="table-auto w-full">
       <thead>
         <tr>
-          <th class="px-4 py-2">name</th>
-          <th class="px-4 py-2">email id</th>
-          <th class="px-4 py-2">password</th>
-          <th class="px-4 py-2">dob</th>
-          <th class="px-4 py-2">accepted terms?</th>
+          <th class="px-4 py-2">Name</th>
+          <th class="px-4 py-2">Email</th>
+          <th class="px-4 py-2">Password</th>
+          <th class="px-4 py-2">Dob</th>
+          <th class="px-4 py-2">Accepted terms?</th>
         </tr>
       </thead>
       <tbody>
@@ -46,7 +46,7 @@ function saveuserform(event) {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const dob = document.getElementById("dob").value;
-  const acceptterms = document.getElementById("acceptterms").checked;
+  const acceptTerms = document.getElementById("acceptTerms").checked;
 
   const currentYear = new Date().getFullYear();
   const birthYear = dob.split("-");
@@ -66,8 +66,8 @@ function saveuserform(event) {
 
   localStorage.setItem("UserEntries", JSON.stringify(userEntries));
   display();
-  userform.reset();
+  userForm.reset();
 }
 
-userform.addEventListener("submit", saveuserform);
+userForm.addEventListener("submit", saveuserform);
 display();
